@@ -1,0 +1,336 @@
+/* VARIABLES */
+let toggle = false;
+
+/* SETUP RUNS ONCE */
+function setup() {
+  //sets the screen size
+  createCanvas(400, 400);
+
+  //sets the background color
+  background('#d0edf3');
+}
+
+/* DRAW LOOP REPEATS */
+function draw() {
+  ellipseMode(CENTER);
+  angleMode (DEGREES);
+  rectMode(CENTER);
+  strokeWeight(0);
+
+  //Directions
+  fill('#051B33');
+  textSize(15);
+  text("Click to Interact",20,30);
+  
+  //Back Hair
+  fill('#FEC5DF');
+  rect(200,320,165,130);
+
+  //Neck
+  fill('#E9CAD2');
+  beginShape();
+  vertex(167,280);
+  vertex(233,280);
+  vertex(233,350);
+  vertex(203,369);
+  vertex(167,326);
+  endShape(CLOSE);
+  fill('#FFEBED');
+  beginShape();
+  vertex(167,326);
+  vertex (203,369);
+  vertex(233,350);
+  vertex(249,365);
+  vertex(322,391);
+  vertex(229,411);
+  vertex(76,391);
+  vertex(160,356);
+  endShape(CLOSE);
+  
+  //Face
+  fill('#FFEBED');
+  ellipse(200,182,210,230);
+  beginShape();
+  vertex(124,262);
+  vertex(276,262);
+  vertex(266,282);
+  vertex(200,320);
+  vertex(134,282);
+  endShape(CLOSE);
+
+  //Eyebrows
+  fill('#33455E');
+  beginShape();
+  vertex(281,169);
+  vertex(250,157);
+  vertex(224,157);
+  vertex(222,164);
+  vertex(254,165);
+  endShape(CLOSE);
+  beginShape();
+  vertex(119,169);
+  vertex(150,157);
+  vertex(176,157);
+  vertex(178,164);
+  vertex(146,165);
+  endShape(CLOSE);
+
+  //Mouth and Nose
+  strokeWeight(1);
+  line(202,280,211,276);
+  line(198,280,189,276);
+  line(198,261,197,254);
+  strokeWeight(0);
+  
+  //Hair
+  fill('#FEC5DF');
+  beginShape();
+  vertex(283,161);
+  vertex(222,73);
+  vertex(241,137);
+  vertex(248,168);
+  vertex(231,137);
+  vertex(225,110);
+  vertex(210,69);
+  vertex(205,117);
+  vertex(206,170);
+  vertex(198,153);
+  vertex(198,114);
+  vertex(203,65);
+  vertex(170,111);
+  vertex(156,150);
+  vertex(153,173);
+  vertex(149,153);
+  vertex(160,107);
+  vertex(197,64);
+  vertex(146,115);
+  vertex(115,163);
+  vertex(90,233);
+  vertex(69,182);
+  vertex(73,125);
+  vertex(99,71);
+  vertex(139,36);
+  vertex(166,23);
+  vertex(196,26);
+  vertex(221,23);
+  vertex(249,29);
+  vertex(289,67);
+  vertex(311,99);
+  vertex(321,137);
+  vertex(322,172);
+  vertex(308,237);
+  vertex(291,254);
+  vertex(278,257);
+  vertex(298,230);
+  vertex(278,131);
+  vertex(238,61);
+  vertex(221,38);
+  vertex(211,39);
+  vertex(206,57);
+  vertex(180,53);
+  vertex(141,70);
+  vertex(113,99);
+  vertex(96,129);
+  vertex(93,154);
+  vertex(103,131);
+  vertex(123,102);
+  vertex(148,80);
+  vertex(179,61);
+  vertex(206,57);
+  vertex(214,61);
+  vertex(237,79);
+  vertex(287,123);
+  endShape(CLOSE);
+  beginShape();
+  vertex(91,233);
+  vertex(74,279);
+  vertex(74,315);
+  vertex(91,333);
+  vertex(83,314);
+  vertex(82,279);
+  endShape(CLOSE);
+  beginShape();
+  vertex(308,238);
+  vertex(324,281);
+  vertex(323,313);
+  vertex(307,327);
+  vertex(315,301);
+  vertex(317,278);
+  endShape(CLOSE);
+  fill('#E58BC9');
+  beginShape();
+  vertex(98,212);
+  vertex(90,234);
+  vertex(123,262);
+  endShape(CLOSE);
+  beginShape();
+  vertex(296,218);
+  vertex(298,231);
+  vertex(280,255);
+  endShape(CLOSE);
+  beginShape();
+  vertex(206,57);
+  vertex(180,53);
+  vertex(141,70);
+  vertex(113,99);
+  vertex(96,129);
+  vertex(93,154);
+  vertex(103,131);
+  vertex(123,102);
+  vertex(148,80);
+  vertex(179,61);
+  endShape(CLOSE);
+  beginShape();
+  vertex(278,131);
+  vertex(238,61);
+  vertex(221,38);
+  vertex(211,39);
+  vertex(206,57);
+  vertex(214,61);
+  vertex(237,79);
+  endShape(CLOSE);
+
+  //Eyes
+  if (toggle == true){
+    //Closed Eyes
+    fill('#051B33');
+    beginShape();
+    vertex(280,217);
+    vertex(267,222);
+    vertex(239,222);
+    vertex(228,219);
+    vertex(230,222);
+    vertex(227,227);
+    vertex(234,225);
+    vertex(236,227);
+    vertex(236,233);
+    vertex(241,228);
+    vertex(269,228);
+    vertex(280,233);
+    vertex(277,226);
+    vertex(280,224);
+    vertex(291,227);
+    endShape(CLOSE);
+    beginShape();
+    vertex(120,217);
+    vertex(133,222);
+    vertex(161,222);
+    vertex(172,219);
+    vertex(170,222);
+    vertex(173,227);
+    vertex(166,225);
+    vertex(164,227);
+    vertex(164,233);
+    vertex(159,228);
+    vertex(131,228);
+    vertex(120,233);
+    vertex(123,226);
+    vertex(120,224);
+    vertex(109,227);
+    endShape(CLOSE);
+  }else if (toggle == false){
+    //Open Eyes
+    fill('#DFFEFD');
+    ellipse(255,213,53,56);
+    ellipse(145,213,53,56);
+    fill('#051B33');
+    ellipse(252,214,34,48);
+    ellipse(148,214,34,48);
+    fill('#FAFFF5');
+    ellipse(251,208,16,13);
+    ellipse(149,208,16,13);
+    fill('#FFEBED');
+    triangle(280,196,266,175,234,190);
+    triangle(120,196,134,175,166,190);
+    fill('#C1F2A0');
+    beginShape();
+    vertex(260,218);
+    vertex(265,218);
+    vertex(265,227);
+    vertex(258,235);
+    vertex(250,237);
+    vertex(240,230);
+    vertex(238,221);
+    vertex(242,222);
+    vertex(247,229);
+    vertex(255,228);
+    endShape();
+    beginShape();
+    vertex(140,218);
+    vertex(135,218);
+    vertex(135,227);
+    vertex(142,235);
+    vertex(150,237);
+    vertex(160,230);
+    vertex(162,221);
+    vertex(158,222);
+    vertex(153,229);
+    vertex(145,228);
+    endShape();
+    fill('#051B33');
+    beginShape();
+    vertex(281,218);
+    vertex(285,202);
+    vertex(300,195);
+    vertex(280,196);
+    vertex(277,194);
+    vertex(287,182);
+    vertex(274,191);
+    vertex(260,189);
+    vertex(244,188);
+    vertex(238,183);
+    vertex(239,188);
+    vertex(234,192);
+    vertex(228,188);
+    vertex(230,196);
+    vertex(227,204);
+    vertex(238,196);
+    vertex(269,198);
+    vertex(280,203);
+    endShape();
+    beginShape();
+    vertex(241,238);
+    vertex(257,239);
+    vertex(271,237);
+    vertex(273,238);
+    vertex(263,242);
+    vertex(263,245);
+    vertex(258,242);
+    vertex(248,241);
+    endShape();
+    beginShape();
+    vertex(119,218);
+    vertex(115,202);
+    vertex(100,195);
+    vertex(120,196);
+    vertex(123,194);
+    vertex(113,182);
+    vertex(126,191);
+    vertex(140,189);
+    vertex(156,188);
+    vertex(162,183);
+    vertex(161,188);
+    vertex(166,192);
+    vertex(172,188);
+    vertex(170,196);
+    vertex(173,204);
+    vertex(162,196);
+    vertex(131,198);
+    vertex(120,203);
+    endShape();
+    beginShape();
+    vertex(159,238);
+    vertex(143,239);
+    vertex(129,237);
+    vertex(127,238);
+    vertex(137,242);
+    vertex(137,245);
+    vertex(142,242);
+    vertex(152,241);
+    endShape();
+  }
+}
+
+function mousePressed(){
+  toggle = !toggle;
+}
