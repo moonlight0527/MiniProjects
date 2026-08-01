@@ -71,7 +71,7 @@ function draw() {
   // Draw directions to screen
   fill(0);
   textSize(12);
-  text("Move Braun \nwith the \nleft and right \narrow keys to \ncatch the falling \nodroplets.", width-50, 20);
+  text("Move Braun \nwith the \nleft and right \narrow keys to \ncatch the falling \ndroplets.", width-50, 20);
 
   // If fallingObject reaches bottom, move back to random position at top
   if (fallingObject.y >= height){
