@@ -409,9 +409,12 @@ function showEnding(){
   background(ending.color);
   // readable background
   fill(0,150);
-  rect(50, 40, width-100, height-120, 15);
+  rect(40,20,width-80,310,15);
   fill("white");
-  let fullText="ENDING: "+ending.title+"\n\n"+ending.text;
+  let fullText=
+  "ENDING: "+ending.title+
+  "\n\n"+
+  ending.text;
   if(endingFullText!=fullText){
     endingFullText=fullText;
     endingDisplay="";
@@ -421,8 +424,13 @@ function showEnding(){
     endingDisplay+=endingFullText.charAt(typingIndex);
     typingIndex++;
   }
-  textSize(14);
-  text(endingDisplay, width/2, height/2-90, 480, 240);
+  // FIX TEXT POSITION
+  textAlign(CENTER, TOP);
+  textSize(12);
+  text(
+    endingDisplay, width/2, 35, 480, 280);
+  // restore alignment for buttons
+  textAlign(CENTER,CENTER);
   if(!unlocked.includes(index)){
     unlocked.push(index);
   }
