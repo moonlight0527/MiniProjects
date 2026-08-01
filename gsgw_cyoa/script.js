@@ -34,8 +34,7 @@ let typingIndex = 0;
 function setup(){
   createCanvas(600,400);
   textAlign(CENTER,CENTER);
-  textSize(18);
-  noStroke();
+  textFont("Arial");
   createButtons();
 }
 
@@ -97,7 +96,7 @@ function showStart(){
   if(loopMode){
     background("#151010");
     fill("white");
-    textSize(20);
+    textSize(18);
     text(
     "The sound of metal grinding against tracks pulls you awake.\n\n"+
     "The same train.\n"+
@@ -106,9 +105,9 @@ function showStart(){
     "Wait...\n\n"+
     "Have I already done this?",
     width/2,
-    height/2-80
+    height/2-80,500,220
     );
-    setButton(0, width/2, height-70, "Begin Again");
+    setButton(0, width/2, height-60, "Begin Again");
   }
   else{
     background(trainColor);
@@ -119,9 +118,9 @@ function showStart(){
     "You don't remember boarding this train.\n\n"+
     "Outside the window is a city you don't recognize.",
     width/2,
-    height/2-70
+    height/2-70,500,200
     );
-    setButton(0, width/2, height-70, "Continue");
+    setButton(0, width/2, height-60, "Continue");
   }
 }
 
@@ -160,11 +159,11 @@ function showTrain(){
     "\n\n"+
     "The doors begin to open.",
     width/2,
-    height/2-80
+    height/2-70,500,220
   );
 
-  setButton(0, width/2-80, height-60, "Get Off");
-  setButton(1, width/2+80, height-60, "Stay On Train");
+  setButton(0, width/2-80, height-50, "Get Off");
+  setButton(1, width/2+80, height-50, "Stay On Train");
 }
 
 //  CLICK HANDLING 
@@ -178,15 +177,15 @@ function mousePressed(){
     // Train -> get off
     else if(screen=="train"){
       screen="ending"+stationIndex;
+      endingFullText="";
+      endingDisplay="";
+      typingIndex=0;
     }
     // Ending -> start
     else if(screen.startsWith("ending")){
       screen="start";
       loopMode=false;
       stationIndex=0;
-      endingDisplay="";
-      endingFullText="";
-      typingIndex=0;
     }
     // Collection -> start
     else if(screen=="endingCollection"){
@@ -224,181 +223,198 @@ let endingTexts = [
 title:"The Forest's Invitation",
 color:"#243326",
 text:
-"You step into the fog.\n\n"+
-"The moment your feet touch the forest floor, the station behind you disappears.\n"+
-"Only endless trees remain.\n\n"+
-"Through the thick fog, you see shadows hanging from the branches.\n"+
-"At first, you convince yourself they are only trees.\n"+
-"But then they move.\n\n"+
-"Figures covered in darkness slowly turn toward you.\n"+
-"They do not speak with their mouths.\n"+
-"They speak inside your head.\n\n"+
-"Come closer... Join us...\"\n\n"+
-"You feel yourself walking forward even though you do not want to.\n"+
-"Each step feels heavier than the last.\n\n"+
-"Then something drops from above.\n"+
-"A rope wraps around your neck.\n\n"+
-"You try to scream, but no sound comes out.\n"+
-"The forest pulls you upward.\n"+
-"Your vision fades.\n\n"+
-"You die.\n\n"+
-"Then you wake up on the train.\n"+
-"Your body is fine.\n"+
-"No marks.\n"+
-"No injuries.\n\n"+
-"Except your neck still feels like something is holding on."
+"You step into the thick fog surrounding the forest.\n\n"+
+
+"The trees stretch endlessly into the darkness.\n"+
+"Among the branches, you see shapes hanging silently.\n\n"+
+
+"They look like people.\n"+
+"They whisper your name.\n"+
+"They tell you to join them.\n\n"+
+
+"You slowly walk closer, unable to resist their voices.\n\n"+
+
+"Suddenly, something tightens around your neck.\n\n"+
+
+"A rope.\n\n"+
+
+"You feel yourself being pulled upward.\n"+
+"You cannot breathe.\n"+
+"You feel yourself dying inside the dream.\n\n"+
+
+"Then everything goes black.\n\n"+
+
+"You wake up on the train.\n"+
+"Your body is perfectly fine.\n\n"+
+
+"But the memory of the rope around your neck never disappears."
 },
 
 {
 title:"The Price of Survival",
 color:"#3b1616",
 text:
-"The station is brighter than expected.\n\n"+
-"Music plays.\n"+
-"Lights flash.\n"+
-"A casino welcomes you inside.\n\n"+
-"A sign hangs above the entrance:\n"+
-"\"Trade what you have. Receive what you need.\"\n\n"+
-"You think it means money.\n"+
-"You are wrong.\n\n"+
-"The exchange counter asks for your body.\n\n"+
+"You step into a casino filled with bright lights and cheerful music.\n\n"+
+
+"A sign welcomes you.\n"+
+"Trade your body. Earn coins.\n\n"+
+
+"At first, it seems impossible.\n"+
+"But the food and supplies are real.\n\n"+
+
+"You exchange pieces of yourself for another chance to survive.\n\n"+
+
 "A finger.\n"+
 "An eye.\n"+
-"A piece of yourself.\n\n"+
-"Every loss gives you more coins.\n"+
-"Every coin gives you another chance to survive.\n\n"+
-"You keep gambling.\n"+
-"You keep believing you can win everything back.\n\n"+
-"But eventually, the casino has taken enough.\n\n"+
-"You collapse.\n\n"+
-"When you wake up outside the dream, everything seems normal.\n\n"+
-"Until you try to move.\n\n"+
-"The body parts you traded away are still there...\n"+
-"But they no longer belong to you."
+"More than you wanted to lose.\n\n"+
+
+"You gamble until you finally escape.\n\n"+
+
+"When you wake up in reality, you expect everything to return to normal.\n\n"+
+
+"But the parts you traded away remain useless.\n"+
+"Paralyzed.\n\n"+
+
+"The casino gave you survival.\n"+
+"But it kept the price forever."
 },
 
 {
 title:"The Missing Page",
 color:"#202047",
 text:
-"You enter the Hanbit Library.\n\n"+
-"The walls are made of endless shelves.\n"+
-"Books stretch farther than your eyes can see.\n\n"+
-"You walk deeper.\n"+
-"Searching for a way out.\n\n"+
-"Then you find a window.\n\n"+
-"Your reflection looks back at you.\n"+
-"But it is not alone.\n\n"+
-"Another version of yourself stands beside it.\n"+
-"Then another.\n"+
-"Then another.\n\n"+
-"You realize they are not monsters.\n"+
-"They are pieces of your life.\n"+
-"Your memories.\n"+
-"Your choices.\n"+
-"Your regrets.\n\n"+
-"The library offers you knowledge beyond anything you imagined.\n\n"+
-"But it needs someone to protect it.\n"+
-"Someone who understands the truth it contains.\n\n"+
+"You enter a library hidden inside a cave of endless books.\n\n"+
+
+"The shelves continue farther than they should.\n"+
+"Every book contains a memory.\n\n"+
+
+"You find a window.\n"+
+"Your reflection looks back.\n\n"+
+
+"Then another appears.\n"+
+"And another.\n"+
+"And another.\n\n"+
+
+"You realize they are different versions of yourself.\n"+
+"Different choices.\n"+
+"Different lives.\n\n"+
+
+"The library's owner has been searching for someone.\n\n"+
+
 "A librarian.\n\n"+
-"The doors close behind you.\n\n"+
-"The shelves continue growing.\n"+
-"And your story becomes another book inside the library."
+
+"Someone who understands every page of themselves.\n\n"+
+
+"You finally understand too late.\n\n"+
+
+"You were never exploring the library.\n"+
+"The library was choosing you."
 },
 
 {
 title:"The Weight of What You Took",
 color:"#c59d52",
 text:
-"The station looks abandoned.\n\n"+
-"Stalls line the platform.\n"+
-"Objects sit untouched.\n"+
-"No seller.\n"+
-"No customers.\n\n"+
-"Everything looks free.\n\n"+
+"You enter a silent market.\n\n"+
+
+"Every stall is filled with abandoned items.\n"+
+"No one is watching.\n\n"+
+
 "You take something.\n\n"+
-"Nothing happens.\n\n"+
-"You take more.\n\n"+
-"Then the heat begins.\n\n"+
+
+"At first, nothing happens.\n\n"+
+
+"Then the heat begins.\n"+
 "The air becomes unbearable.\n"+
-"The ground burns beneath your feet.\n"+
-"The entire station turns white from the temperature.\n\n"+
-"You finally understand.\n\n"+
-"The market was never empty.\n"+
-"It was waiting for someone to prove their conscience.\n\n"+
-"The things you carried became the weight that burned you."
+"The ground starts burning.\n\n"+
+
+"The more you carry,\n"+
+"the hotter the station becomes.\n\n"+
+
+"You realize the market was never empty.\n\n"+
+
+"It was judging your conscience."
 },
 
 {
 title:"Now Broadcasting Forever",
 color:"#8f1f3f",
 text:
-"Applause fills the station.\n\n"+
-"A bright smile welcomes you.\n"+
-"A camera turns toward you.\n\n"+
-"Congratulations! You have been selected as a temporary employee!\"\n\n"+
-"The contract promises food.\n"+
+"You enter Delusion Home Shopping #4-168.\n\n"+
+
+"Bright lights surround you.\n"+
+"An announcer welcomes you with a smile.\n\n"+
+
+"A temporary employee contract appears.\n\n"+
+
+"Food.\n"+
 "Safety.\n"+
-"A way to survive.\n\n"+
+"A simple job.\n\n"+
+
 "You sign.\n\n"+
-"Your first job is simple.\n"+
-"Demonstrate a product.\n\n"+
-"But every product is something impossible.\n"+
-"Something dangerous.\n"+
-"Something that kills the person showing it.\n\n"+
-"The audience loves it.\n"+
-"The ratings increase.\n"+
-"The cameras keep recording.\n\n"+
-"Even after your body stops moving...\n"+
-"The contract remains active.\n\n"+
-"Welcome to Delusion Home Shopping.\n"+
-"Your shift never ends."
+
+"The products you demonstrate are not normal.\n"+
+"Each one kills the person testing it.\n\n"+
+
+"The cameras keep recording.\n"+
+"The audience keeps watching.\n\n"+
+
+"Even after your body stops moving,\n"+
+"your contract continues.\n\n"+
+
+"Welcome to eternal employment."
 },
 
 {
 title:"A Peaceful Rest",
 color:"#d8b56b",
 text:
-"The station feels familiar.\n\n"+
-"A quiet neighborhood stretches beyond the platform.\n"+
-"Warm lights shine through the windows.\n\n"+
-"You hear voices calling your name.\n\n"+
-"They sound like people you trust.\n"+
-"People you miss.\n\n"+
-"Come home. You're tired. Rest.\"\n\n"+
-"You know something feels wrong.\n"+
-"But you are exhausted.\n\n"+
-"Just a short rest.\n"+
-"Just a moment.\n\n"+
+"You step into a familiar neighborhood.\n\n"+
+
+"The sunlight feels warm.\n"+
+"The voices feel familiar.\n\n"+
+
+"Someone you love calls your name.\n\n"+
+
+"They tell you to rest.\n"+
+"Just for a little while.\n\n"+
+
+"You are tired.\n"+
+"So tired.\n\n"+
+
 "You close your eyes.\n\n"+
-"When you wake up...\n"+
-"You don't.\n\n"+
-"The station finally gives everyone what they wanted.\n"+
-"A place to stay forever."
+
+"When you fall asleep,\n"+
+"you never wake up again.\n\n"+
+
+"The shelter finally gives you the peace you wanted."
 },
 
 {
 title:"The Final Judgment",
 color:"#eeeeee",
 text:
-"You enter the courtroom.\n\n"+
-"Rows of people stand silently before you.\n"+
-"One by one, they approach the scale.\n\n"+
-"Those who fail disappear.\n\n"+
-"Then your name is called.\n\n"+
-"You stand before the Scale of Evil.\n\n"+
-"One side holds your heart.\n"+
-"The other holds the thing you love most.\n\n"+
-"The question is not whether you are good.\n\n"+
-"The question is:\n"+
-"What would you sacrifice to return home?\n\n"+
-"The scale begins moving.\n\n"+
-"You think about the person waiting for you.\n"+
-"You think about the choices you would make.\n\n"+
-"The result is unclear.\n\n"+
-"The courtroom goes silent.\n\n"+
-"Did you pass?\n"+
-"Or did the scale already decide?"
+"You enter a silent courtroom.\n\n"+
+
+"People stand in a long line waiting for judgment.\n\n"+
+
+"One by one, they step forward.\n"+
+"Those who fail never leave.\n\n"+
+
+"Finally, it is your turn.\n\n"+
+
+"A scale appears.\n\n"+
+
+"One side holds your sins.\n"+
+"The other holds the person you love most.\n\n"+
+
+"The voice asks:\n\n"+
+
+"Would you sacrifice everything to see them again?\n\n"+
+
+"The scale moves slowly.\n\n"+
+
+"But the result remains unknown."
 }
 
 ];
@@ -409,12 +425,11 @@ function showEnding(){
   background(ending.color);
   // readable background
   fill(0,150);
-  rect(40,20,width-80,310,15);
+  rect(35,30,width-70,height-110,15);
   fill("white");
+  textSize(14);
   let fullText=
-  "ENDING: "+ending.title+
-  "\n\n"+
-  ending.text;
+  "ENDING: "+ending.title+"\n\n"+ending.text;
   if(endingFullText!=fullText){
     endingFullText=fullText;
     endingDisplay="";
@@ -422,13 +437,10 @@ function showEnding(){
   }
   if(typingIndex<endingFullText.length){
     endingDisplay+=endingFullText.charAt(typingIndex);
-    typingIndex++;
+    typingIndex+=2;
   }
-  // FIX TEXT POSITION
-  textAlign(CENTER, TOP);
-  textSize(12);
   text(
-    endingDisplay, width/2, 35, 480, 280);
+    endingDisplay, width/2, height/2-70, 500, 230);
   // restore alignment for buttons
   textAlign(CENTER,CENTER);
   if(!unlocked.includes(index)){
@@ -458,8 +470,8 @@ function showCollection(){
     }
   }
   textSize(16);
-  text(list, width/2, height/2-60);
-  setButton(0, width/2, height-50, "Return to Start");
+  text(list, width/2, height/2-80,450,260);
+  setButton(0, width/2, height-40, "Return to Start");
 }
 
 //  SECRET LOOP ENDING 
@@ -469,7 +481,7 @@ function showLoop(){
     unlocked.push(7);
   }
   fill("white");
-  textSize(14);
+  textSize(16);
   text(
   "The train continues moving.\n\n"+
 
@@ -490,7 +502,7 @@ function showLoop(){
   "Why does this feel familiar?\n"+
   "Why do you already know what happens next?",
   
-  width/2, height/2-80
+  width/2, height/2-70,500,260
   );
   setButton(0, width/2, height-40, "Begin Again");
 }
