@@ -81,13 +81,6 @@ function draw(){
 
 }
 
-function drawTextBox(txt, x, y, w, h, size=16){
-  fill("white");
-  textAlign(LEFT, TOP);
-  textSize(size);
-  text(txt, x, y, w, h);
-  textAlign(CENTER,CENTER);
-}
 
 // =====================
 // BUTTON SYSTEM
@@ -154,12 +147,13 @@ function showStart(){
 
     fill("white");
     textSize(18);
-
-    drawTextBox(
-      "The sound of metal grinding against tracks pulls you awake.\n\n"+
-      "You don't remember boarding this train.\n\n"+
+    textAlign(LEFT, TOP);
+    
+    text(
+      "The sound of metal grinding against tracks pulls you awake.\n\n" +
+      "You don't remember boarding this train.\n\n" +
       "Outside the window is a city you don't recognize.",
-      75,60,450,250,18
+      75, 60, 450, 250
     );
 
     setButton(
@@ -178,19 +172,14 @@ function showStart(){
 
     fill("white");
     textSize(18);
-
+    textAlign(LEFT, TOP);
 
     text(
-      "The sound of metal grinding against tracks pulls you awake.\n\n"+
-      "You don't remember boarding this train.\n\n"+
+      "The sound of metal grinding against tracks pulls you awake.\n\n" +
+      "You don't remember boarding this train.\n\n" +
       "Outside the window is a city you don't recognize.",
-
-      width/2,
-      90,
-      450,
-      220
+      75, 60, 450, 220
     );
-
 
     setButton(
       0,
@@ -216,7 +205,7 @@ function showTrain(){
   fill("white");
 
   textSize(18);
-
+  textAlign(LEFT, TOP);
 
   let trainText=[
 
@@ -249,19 +238,17 @@ function showTrain(){
 
   ];
 
-  drawTextBox(
-    stations[stationIndex]+
-    "\n\n"+
-    trainText[stationIndex]+
-    "\n\n"+
+  text(
+    stations[stationIndex] +
+    "\n\n" +
+    trainText[stationIndex] +
+    "\n\n" +
     "The doors begin to open.",
     75,
     55,
     450,
-    250,
-    18
+    250
   );
-
 
   setButton(
     0,
@@ -269,7 +256,6 @@ function showTrain(){
     height-45,
     "Get Off"
   );
-
 
   setButton(
     1,
@@ -710,16 +696,12 @@ function showCollection(){
 
   fill("white");
 
-  textAlign(CENTER,CENTER);
-
+  textAlign(LEFT, TOP);
   textSize(16);
-
 
   let list="ENDINGS\n\n";
 
-
   for(let i=0;i<endings.length;i++){
-
 
     if(unlocked.includes(i)){
 
@@ -728,7 +710,6 @@ function showCollection(){
     }
 
     else{
-
 
       if(i==7){
 
@@ -746,16 +727,9 @@ function showCollection(){
 
   }
 
+  text(list, 90, 50, 420, 280);
 
-  drawTextBox(
-    list,
-    90,
-    50,
-    420,
-    280,
-    16
-  );
-
+  textAlign(CENTER,CENTER);
 
   setButton(
     0,
@@ -786,13 +760,10 @@ function showLoop(){
 
   fill("white");
 
-
   textAlign(LEFT,TOP);
-
   textSize(15);
 
-
-  drawTextBox(
+  text(
     "SECRET ENDING: The Endless Route\n\n"+
     "The train continues moving.\n\n"+
     "One station passes.\n"+
@@ -805,16 +776,13 @@ function showLoop(){
     "...\n\n"+
     "Why does this feel familiar?\n"+
     "Why do you already know what happens next?",
-
     70,
     50,
     460,
-    280, 15
+    280
   );
 
-
   textAlign(CENTER,CENTER);
-
 
   setButton(
     0,
