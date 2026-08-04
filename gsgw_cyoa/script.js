@@ -422,32 +422,37 @@ text:
 function showEnding(){
   let index=int(screen.replace("ending",""));
   let ending=endingTexts[index];
+
   background(ending.color);
-  // readable background
-  fill(0,150);
-  rect(35,30,width-70,height-110,15);
+
+  // text box background
+  fill(0,170);
+  rect(40,25,width-80,height-105,15);
+
+  let fullText =
+  "ENDING: "+ending.title+"\n\n"+
+  ending.text;
+
+  if(endingFullText != fullText){
+    endingFullText = fullText;
+    endingDisplay = "";
+    typingIndex = 0;
+  }
+
+  if(typingIndex < endingFullText.length){
+    endingDisplay += endingFullText.charAt(typingIndex);
+    typingIndex += 1;
+  }
+  textAlign(LEFT, TOP);
   fill("white");
-  textSize(14);
-  let fullText=
-  "ENDING: "+ending.title+"\n\n"+ending.text;
-  if(endingFullText!=fullText){
-    endingFullText=fullText;
-    endingDisplay="";
-    typingIndex=0;
-  }
-  if(typingIndex<endingFullText.length){
-    endingDisplay+=endingFullText.charAt(typingIndex);
-    typingIndex+=2;
-  }
-  text(
-    endingDisplay, width/2, height/2-70, 500, 230);
-  // restore alignment for buttons
+  textSize(13);
+  text(endingDisplay,65,45,width-130,height-130);
   textAlign(CENTER,CENTER);
   if(!unlocked.includes(index)){
     unlocked.push(index);
   }
-  setButton(0, width/2-80, height-40, "Start Over");
-  setButton(1, width/2+80, height-40, "Endings");
+  setButton(0,width/2-80,height-40,"Start Over");
+  setButton(1,width/2+80,height-40,"Endings");
 }
 
 //  ENDING COLLECTION 
