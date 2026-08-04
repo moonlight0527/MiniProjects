@@ -298,7 +298,6 @@ function mousePressed(){
     else if(screen=="train"){
 
       screen="ending"+stationIndex;
-
       endingPage=0;
 
     }
@@ -309,11 +308,8 @@ function mousePressed(){
     else if(screen.startsWith("ending")){
 
       screen="start";
-
       loopMode=false;
-
       stationIndex=0;
-
       endingPage=0;
 
     }
@@ -324,9 +320,7 @@ function mousePressed(){
     else if(screen=="endingCollection"){
 
       screen="start";
-
       loopMode=false;
-
       stationIndex=0;
 
     }
@@ -337,9 +331,7 @@ function mousePressed(){
     else if(screen=="loop"){
 
       screen="start";
-
       loopMode=true;
-
       stationIndex=0;
 
     }
@@ -370,18 +362,17 @@ function mousePressed(){
     }
 
 
-    // ending pages
+    // ending pages - FIX THIS SECTION
 
     else if(screen.startsWith("ending")){
 
-
-      endingPage++;
-
-
-      if(endingPage>getEndingPages()){
-
+      // Check if we're on the last page
+      if(endingPage >= getEndingPages() - 1){
+        // If on last page and "Endings" button is shown, go to collection
         screen="endingCollection";
-
+      } else {
+        // Otherwise go to next page
+        endingPage++;
       }
 
     }
