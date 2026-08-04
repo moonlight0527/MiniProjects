@@ -81,6 +81,13 @@ function draw(){
 
 }
 
+function drawTextBox(txt, x, y, w, h, size=16){
+  fill("white");
+  textAlign(LEFT, TOP);
+  textSize(size);
+  text(txt, x, y, w, h);
+  textAlign(CENTER,CENTER);
+}
 
 // =====================
 // BUTTON SYSTEM
@@ -148,20 +155,12 @@ function showStart(){
     fill("white");
     textSize(18);
 
-    text(
+    drawTextBox(
       "The sound of metal grinding against tracks pulls you awake.\n\n"+
-      "The same train.\n"+
-      "The same lights.\n"+
-      "The same feeling.\n\n"+
-      "Wait...\n\n"+
-      "Have I already done this?",
-
-      width/2,
-      80,
-      450,
-      230
+      "You don't remember boarding this train.\n\n"+
+      "Outside the window is a city you don't recognize.",
+      75,60,450,250,18
     );
-
 
     setButton(
       0,
@@ -254,17 +253,17 @@ function showTrain(){
   textAlign(CENTER,CENTER);
 
 
-  text(
+  drawTextBox(
     stations[stationIndex]+
     "\n\n"+
     trainText[stationIndex]+
     "\n\n"+
     "The doors begin to open.",
-
-    width/2,
-    80,
+    75,
+    55,
     450,
-    240
+    250,
+    18
   );
 
 
@@ -752,12 +751,13 @@ function showCollection(){
   }
 
 
-  text(
+  drawTextBox(
     list,
-    width/2,
-    70,
-    450,
-    250
+    90,
+    50,
+    420,
+    280,
+    16
   );
 
 
@@ -796,7 +796,7 @@ function showLoop(){
   textSize(15);
 
 
-  text(
+  drawTextBox(
     "SECRET ENDING: The Endless Route\n\n"+
     "The train continues moving.\n\n"+
     "One station passes.\n"+
@@ -811,9 +811,9 @@ function showLoop(){
     "Why do you already know what happens next?",
 
     70,
-    60,
+    50,
     460,
-    260
+    280, 15
   );
 
 
