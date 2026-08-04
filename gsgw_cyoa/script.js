@@ -249,10 +249,6 @@ function showTrain(){
 
   ];
 
-
-  textAlign(CENTER,CENTER);
-
-
   drawTextBox(
     stations[stationIndex]+
     "\n\n"+
