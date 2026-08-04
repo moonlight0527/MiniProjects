@@ -178,7 +178,7 @@ function showStart(){
       "The sound of metal grinding against tracks pulls you awake.\n\n" +
       "You don't remember boarding this train.\n\n" +
       "Outside the window is a city you don't recognize.",
-      75, 60, 450, 220
+      75, 60, 450, 250
     );
 
     setButton(
